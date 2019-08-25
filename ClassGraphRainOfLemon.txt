@@ -1,0 +1,153 @@
+@startuml
+package Player{
+        class PlayerParametor{
+            -string Name
+            -int HP
+            -int MP
+            -int AttackPower
+            -int Lv
+            -int Experience
+        }
+
+        class PlayerAttack{
+            
+        }
+
+        interface IPlayerApplyDamage{
+
+        }
+
+        interface IGetDamage{
+
+        }
+
+        class PlayerDamage{
+
+        }
+
+        class PlayerMove{
+
+        }
+
+        class PlayerTalk{
+
+        }
+
+
+}
+
+package Item{
+    class GetItem{
+
+    }
+
+    class RemoveItem{
+
+    }
+
+    abstract class ItemInfo{
+        
+    }
+
+    class Equip{
+
+    }
+
+    class Expendables{
+
+    }
+
+    class Important{
+
+    }
+}
+
+Package Weapon{
+    class WeaponInfo{
+
+    }
+
+    class GetWeapon{
+
+    }
+
+    class WeaponParametor{
+
+    }
+
+    class WeaponEquip{
+
+    }
+}
+
+package GameManager{
+    class FlagManager{
+
+    }
+
+    class SceneManager{
+
+    }
+
+    class InputManager{
+
+    }
+
+    class SaveManager{
+
+    }
+
+    class SoundManager{
+
+    }
+}
+
+package UI{
+    class Menu{
+
+    }
+
+    class TalkDialog{
+
+    }
+
+}
+
+package Enemy{
+    class EnemyInfo{
+
+    }
+
+    class EnemyParametor{
+
+    }
+
+    class EnemyRespawn{
+
+    }
+
+    class EnemyAI{
+
+    }
+
+    class EnemyDamage{
+
+    }
+
+    class EnemyDeath{
+
+    }
+}
+
+IPlayerApplyDamage <|-- EnemyDamage
+IGetDamage <|--PlayerDamage
+
+note top of SceneManager : 全体のシーンのロード
+note top of SoundManager : 全体にかかわる音関係の処理
+ItemInfo<|--Expendables
+ItemInfo<|--Important
+ItemInfo<|--Equip
+PlayerParametor-> Item
+Weapon <- PlayerAttack 
+UI <- PlayerTalk
+@enduml
